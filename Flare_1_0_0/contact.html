@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Contact – Front Row Tech</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- if you already have a global stylesheet, you can remove this <style> and paste it into assets/css/main.css -->
+  <style>
+    :root{
+      --bg:#161719;
+      --card:#202124;
+      --text:#ffffff;
+      --muted:#b7b9bd;
+      --accent:#e63946;
+      --accent-2:#ff6b6b;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;
+      background:var(--bg); color:var(--text); line-height:1.5;
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    header#contact-header{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:18px 22px; border-bottom:1px solid #2a2b2e; background:#161719f2; position:sticky; top:0; z-index:10;
+    }
+    #logo{font-weight:700; letter-spacing:.5px}
+    #logo a{color:#fff; text-decoration:none}
+    nav ul{list-style:none; margin:0; padding:0; display:flex; gap:18px}
+    nav a{color:#fff; opacity:.85}
+    nav a:hover{opacity:1}
+    .container{max-width:980px; margin:0 auto; padding:40px 20px}
+    .hero{
+      text-align:center; padding:48px 20px 12px;
+    }
+    .hero .icon{
+      width:56px; height:56px; border-radius:14px;
+      display:inline-grid; place-items:center; margin:0 auto 14px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      color:#fff; font-size:26px; font-weight:800;
+    }
+    .hero h1{margin:10px 0 8px; font-size:2.1rem}
+    .hero p{color:var(--muted); margin:0 auto; max-width:720px}
+    .card{
+      background:var(--card); border:1px solid #2a2b2e; border-radius:14px;
+      padding:28px; margin-top:28px;
+      box-shadow:0 10px 24px rgba(0,0,0,.25);
+    }
+    form .row{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+    form .row.stretch{grid-template-columns:1fr}
+    input, textarea{
+      width:100%; background:#1b1c1e; color:#fff; border:1px solid #2a2b2e;
+      border-radius:10px; padding:14px 12px; font-size:1rem;
+      outline:none; transition:border-color .2s ease, box-shadow .2s ease;
+    }
+    input::placeholder, textarea::placeholder{color:#888}
+    input:focus, textarea:focus{
+      border-color:var(--accent); box-shadow:0 0 0 3px rgba(230,57,70,.2);
+    }
+    .actions{display:flex; gap:12px; flex-wrap:wrap; margin-top:10px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 18px; border-radius:10px; border:1px solid transparent;
+      font-weight:600; cursor:pointer; text-decoration:none;
+    }
+    .btn-primary{background:var(--accent); color:#fff; border-color:var(--accent)}
+    .btn-primary:hover{filter:brightness(1.1)}
+    .btn-ghost{background:transparent; color:#fff; border-color:var(--accent)}
+    .btn-ghost:hover{background:var(--accent)}
+    .meta{
+      color:var(--muted); font-size:.95rem; margin-top:12px;
+    }
+    footer{
+      text-align:center; color:var(--muted); padding:40px 20px;
+      border-top:1px solid #2a2b2e; margin-top:40px;
+    }
+    /* responsive */
+    @media (max-width:800px){
+      form .row{grid-template-columns:1fr}
+      .hero h1{font-size:1.8rem}
+    }
+  </style>
+  <!-- if you already load Font Awesome locally in your site, you may omit this -->
+  <script defer src="js/fontawesome/all.min.js"></script>
+</head>
+<body class="contact">
+
+  <header id="contact-header">
+    <div id="logo"><a href="index.html">Front Row Tech</a></div>
+    <nav>
+      <ul>
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#work">Work</a></li>
+        <li><a href="index.html#vision">Vision</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="icon">✉</div>
+      <h1>Get In Touch</h1>
+      <p>Tell us about your idea, challenge, or project. We’ll reply with next steps and how we can help —
+         because this is <strong>where ideas go live</strong>.</p>
+    </section>
+
+    <section class="card">
+      <!-- mailto keeps your original idea, opens email client with message body -->
+      <form action="https://formspree.io/f/myzlzeeg" method="POST" >
+        <div class="row">
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="Name" type="text" placeholder="Your name" required />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="Email" type="email" placeholder="you@company.com" required />
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label for="company">Company (optional)</label>
+            <input id="company" name="Company" type="text" placeholder="Company / Organization" />
+          </div>
+          <div>
+            <label for="subject">Subject</label>
+            <input id="subject" name="Subject" type="text" placeholder="What can we help with?" />
+          </div>
+        </div>
+        <div class="row stretch">
+          <div>
+            <label for="message">Message</label>
+            <textarea id="message" name="Message" rows="7" placeholder="Tell us a bit about the project, timeline, and budget (if known)." required></textarea>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="btn btn-primary">Send Message</button>
+          <a class="btn btn-ghost" href="mailto:info@frontrowtech.co.za?subject=Project%20Inquiry%20-%20Front%20Row%20Tech">Email Us Directly</a>
+        </div>
+
+        <p class="meta">Prefer calling? Reach us via email and we’ll share a meeting link.</p>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="y"></span> Front Row Tech • Designed & built by Front Row Tech
+  </footer>
+
+  <script>
+    // year
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
