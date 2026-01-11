@@ -1679,11 +1679,11 @@ h5, .h5 {
 }
 
 h6, .h6 {
-    font-size: var(--text-sm);
+    font-size: 2.4rem;   /* increase size */
     font-weight: 600;
     line-height: var(--vspace-0_75);
     text-transform: uppercase;
-    letter-spacing: .22em;
+    letter-spacing: .25em;
 }
 
 .lead, .attention-getter {
@@ -3489,7 +3489,7 @@ input::-moz-focus-inner {
 }
 
 .s-hero__bg {
-    background-image: url(../images/bg-img.png);
+    background-image: url(../new/bgimg.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -4055,31 +4055,29 @@ html.no-csstransitions .s-hero__content {
 /* ------------------------------------------------------------------- 
  * ## about photo
  * ------------------------------------------------------------------- */
+/* -------------------------------------------------------------------
+ * ## about photo
+ * ------------------------------------------------------------------- */
+
 .s-about__photo-block {
     position: relative;
+    margin-bottom: 4rem;
+    min-height: 520px;
 }
 
 .s-about__photo {
-    background-image: url(../images/img5.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
     position: absolute;
     top: var(--vspace-0_5);
     right: var(--gutter-lg);
     left: var(--gutter-lg);
-    bottom: var(--vspace-1);
- 
-}
+    bottom: var(--vspace-0_5);
 
-.s-about__photo img {
-  width: 100%;
-  height: auto;
-  max-height: 600px;   /* adjust this number to your liking */
-  object-fit: cover;   /* crops gently to fit the box */
-  border-radius: 10px;
+    background-image: url(../new/about_img.JPEG);
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 100%;   /* 👈 ZOOM CONTROL */
+    border-radius: 10px;
 }
-
 
 /* ------------------------------------------------------------------- 
  * ## about process
@@ -4131,16 +4129,29 @@ html.no-csstransitions .s-hero__content {
 @media screen and (max-width: 1000px) {
     .s-about {
         padding-top: calc(5 * var(--space));
+        padding-bottom: 6rem; /* adds breathing room */
     }
+
     .s-about .horizontal-line {
-        right: calc(4.6rem);
+        right: 4.6rem;
         left: auto;
+    }
+
+    .s-about__photo-block {
+        min-height: 460px; /* keeps image tall */
+        margin-bottom: 4rem;
     }
 }
 
 @media screen and (max-width: 900px) {
     .s-about__photo-block {
-        display: none;
+        min-height: 380px;  /* reduced height for tablets */
+        margin-bottom: 3rem;
+    }
+
+    .s-about__photo {
+        right: var(--gutter-sm);
+        left: var(--gutter-sm);
     }
 }
 
@@ -4151,15 +4162,26 @@ html.no-csstransitions .s-hero__content {
 }
 
 @media screen and (max-width: 600px) {
+    .s-about {
+        padding-bottom: 5rem;
+    }
+
     .s-about .horizontal-line {
-        right: calc(2.6rem);
+        right: 2.6rem;
+    }
+
+    .s-about__photo-block {
+        min-height: 320px; /* phone-friendly */
+        margin-bottom: 2.5rem;
     }
 }
 
 @media screen and (max-width: 400px) {
     .s-about {
         padding-top: var(--vspace-4);
+        padding-bottom: var(--vspace-4);
     }
+
     .s-about__process h3 {
         padding-left: 3em;
         margin-bottom: var(--vspace-0_75);
@@ -4167,10 +4189,44 @@ html.no-csstransitions .s-hero__content {
 }
 
 @media screen and (max-width: 360px) {
+    .s-about__photo-block {
+        min-height: 280px;
+    }
+
     .s-about .horizontal-line {
         height: 16rem;
         top: -2rem;
-        right: calc(1.8rem);
+        right: 1.8rem;
+    }
+}
+
+/* -------------------------------------------------------------------
+ * ## section divider image
+ * ------------------------------------------------------------------- */
+
+.s-divider-image {
+    position: relative;
+    height: 60vh; /* controls how tall the image is */
+    background-image: url("../new/office_img.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/*.s-divider-image .divider-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(20, 23, 27, 0.9),
+        rgba(20, 23, 27, 0.4),
+        rgba(20, 23, 27, 0.9)
+    );
+}*/
+
+@media (max-width: 800px) {
+    .s-divider-image {
+        height: 40vh;
     }
 }
 
@@ -4182,7 +4238,7 @@ html.no-csstransitions .s-hero__content {
  * ------------------------------------------------------------------- */
 .s-services {
     background-color: var(--color-bg);
-    padding-top: calc(6 * var(--space));
+    padding-top: var(--vspace-3);
     padding-bottom: var(--vspace-2);
 }
 
@@ -4252,7 +4308,7 @@ html.no-csstransitions .s-hero__content {
  * ------------------------------------------------------------------- */
 .s-portfolio {
     background-color: var(--color-bg);
-    padding-top: calc(7 * var(--space));
+    padding-top: var(--vspace-1);
     padding-bottom: 0;
 }
 
@@ -4445,6 +4501,9 @@ html.no-csstransitions .s-hero__content {
     .folio-item__cat {
         font-size: 1.1rem;
     }
+}
+.s-portfolio .display-1 {
+    margin-top: 6rem;
 }
 
 @media screen and (max-width: 800px) {
@@ -4705,17 +4764,47 @@ html.no-csstransitions .s-hero__content {
 
 
 /* ===================================================================
- * # contact
- *
+ * # contact + footer shared background
  * ------------------------------------------------------------------- */
+
+.contact-footer-bg {
+    position: relative;
+    background-image: url("../new/footer_bg.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+     padding-top: var(--vspace-15);
+}
+
+/* overlay for readability */
+.contact-footer-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 0;
+}
+
+/* keep content above overlay */
+.contact-footer-bg > * {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* ===================================================================
+ * # contact
+ * ------------------------------------------------------------------- */
+
 .s-contact {
-    background-color: var(--color-1);
-    padding-top: calc(6 * var(--space));
-    padding-bottom: var(--vspace-2);
+    position: relative;
+    background: transparent; /* IMPORTANT */
+    padding-top: var(--vspace-6);
+    padding-bottom: var(--vspace-6);
 }
 
 .s-contact__top .h6 {
-    color: black;
+    color: white;
     margin-top: 0;
     margin-bottom: var(--vspace-1);
 }
@@ -4734,41 +4823,22 @@ html.no-csstransitions .s-hero__content {
     border-bottom: 2px solid transparent;
 }
 
-.s-contact__email a:hover, 
+.s-contact__email a:hover,
 .s-contact__email a:focus {
     border-bottom: 2px solid white;
 }
 
 
-/* ------------------------------------------------------------------- 
- * responsive:
- * contact
- * ------------------------------------------------------------------- */
-@media screen and (max-width: 1600px) {
-    .s-contact__email {
-        font-size: calc(var(--text-size) * 6);
-    }
-}
-
-@media screen and (max-width: 1200px) {
-    .s-contact__email {
-        font-size: 10vw;
-    }
-}
-
-@media screen and (max-width: 400px) {
-    .s-contact {
-        padding-top: var(--vspace-4);
-    }
-}
 
 
 
 /* ===================================================================
  * # footer
- *
  * ------------------------------------------------------------------- */
+
 .s-footer {
+    position: relative;
+    background: transparent; /* IMPORTANT */
     padding-top: var(--vspace-2);
     padding-bottom: var(--vspace-4);
     color: white;
@@ -4779,7 +4849,7 @@ html.no-csstransitions .s-hero__content {
 }
 
 .s-footer .h6 {
-    color: black;
+    color: white;
     margin-top: 0;
 }
 
@@ -4787,6 +4857,7 @@ html.no-csstransitions .s-hero__content {
 /* ------------------------------------------------------------------- 
  * ## footer block
  * ------------------------------------------------------------------- */
+
 .s-footer__block {
     font-size: var(--text-lg);
     line-height: calc(1.25 * var(--space));
@@ -4808,7 +4879,7 @@ html.no-csstransitions .s-hero__content {
     content: "";
     height: 1px;
     width: 33.333%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.35);
     position: absolute;
     top: var(--vspace-0_25);
     left: var(--gutter-lg);
@@ -4816,15 +4887,16 @@ html.no-csstransitions .s-hero__content {
 
 .s-footer__block--end .btn {
     background-color: white;
-    border: .2rem solid white;
+    border: 0.2rem solid white;
     color: black;
     margin-right: 0;
     margin-bottom: var(--vspace-1);
 }
 
-.s-footer__block--end .btn:hover, .s-footer__block--end .btn:focus {
+.s-footer__block--end .btn:hover,
+.s-footer__block--end .btn:focus {
     background-color: var(--color-gray-19);
-    border: 0.2rem solid var(--color-gray-19);
+    border-color: var(--color-gray-19);
     color: white;
 }
 
@@ -4832,6 +4904,7 @@ html.no-csstransitions .s-hero__content {
 /* ------------------------------------------------------------------- 
  * ## footer list
  * ------------------------------------------------------------------- */
+
 .s-footer__list {
     list-style: none;
     margin-left: 0;
@@ -4840,6 +4913,29 @@ html.no-csstransitions .s-hero__content {
 .s-footer__list li {
     padding-left: 0;
 }
+@media (max-width: 768px) {
+    .contact-footer-bg {
+        background-image: url("../new/mobile_bg.png");
+        background-position: center;
+        padding-top: 30vh; /* more vertical space for portrait image */
+    }
+
+    .contact-footer-bg::before {
+        background: rgba(0, 0, 0, 0.65);
+    }
+}
+@media (max-width: 768px) {
+    .contact-footer-bg {
+        background-position: center top;
+        padding-top: 22vh; /* adjust if needed */
+    }
+
+    .contact-footer-bg::before {
+        background: rgba(0, 0, 0, 0.65);
+    }
+}
+
+
 
 
 /* ------------------------------------------------------------------- 
@@ -4998,21 +5094,34 @@ html.no-csstransitions .s-hero__content {
 }
 
 .vision-icon {
-  font-size: 40px;
+  font-size: 60px;
   color: #e63939; /* Front Row Tech red tone */
-  margin-bottom: 15px;
+  margin-bottom: 0px;
 }
 
 .vision-card h3 {
-  font-size: 1.2rem;
+  font-size: 1.35rem;
   margin-bottom: 10px;
   color: #fff;
+   margin-top: 0;  
+  font-weight: 700;
 }
 
 .vision-card p {
-  font-size: 0.95rem;
+  font-size: 1.55rem; 
   color: #ccc;
-  line-height: 1.5;
+  line-height: 1.6;
   margin: 0 auto;
   max-width: 220px;
 }
+
+@media (max-width: 800px) {
+    .vision-card h3 {
+        font-size: 1.25rem;
+    }
+
+    .vision-card p {
+        font-size: 1rem;
+    }
+}
+
