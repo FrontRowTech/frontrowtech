@@ -4773,7 +4773,7 @@ html.no-csstransitions .s-hero__content {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-     padding-top: var(--vspace-15);
+    padding-top: var(--vspace-15);
 }
 
 /* overlay for readability */
@@ -4913,28 +4913,18 @@ html.no-csstransitions .s-hero__content {
 .s-footer__list li {
     padding-left: 0;
 }
+
 @media (max-width: 768px) {
     .contact-footer-bg {
         background-image: url("../new/mobile_bg.png");
-        background-position: center;
-        padding-top: 30vh; /* more vertical space for portrait image */
-    }
-
-    .contact-footer-bg::before {
-        background: rgba(0, 0, 0, 0.65);
-    }
-}
-@media (max-width: 768px) {
-    .contact-footer-bg {
         background-position: center top;
-        padding-top: 22vh; /* adjust if needed */
+        padding-top: 30vh; /* KEEP THIS */
     }
 
     .contact-footer-bg::before {
         background: rgba(0, 0, 0, 0.65);
     }
 }
-
 
 
 
